@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter01", "Chapter01", "{4B31741C-80A9-4AD2-83BA-EB37CF2D9179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceConverter", "DistanceConverter\DistanceConverter.csproj", "{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DBFB5E9-5082-4EA4-B7AA-6F227CAADDCB} = {4B31741C-80A9-4AD2-83BA-EB37CF2D9179}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A51FCBD-E7D8-494C-9587-1C62A44B9232}
+	EndGlobalSection
+EndGlobal
