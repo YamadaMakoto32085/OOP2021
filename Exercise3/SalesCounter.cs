@@ -32,29 +32,15 @@ namespace Exercise3 {
             return sales;
         }
 
-        /*//List2-17
-        //店舗別売り上げを求める
-        public IDictionary<string,int> GetPerStoreSales() {
-            var dict = new Dictionary<string, int>();
-            foreach (var sale in _sales) {
-                if (dict.ContainsKey(sale.ShopName))
-                    //既にコレクションに店舗が設定されている
-                    dict[sale.ShopName] += sale.Amount;
-                else
-                    //コレクションへ店舗を登録
-                    dict[sale.ShopName] = sale.Amount;
-            }
-            return dict;
-        }*/
         //商品カテゴリ別売り上げを求める
         public IDictionary<string,int> GetPerCategorySales() {
             var dict = new Dictionary<string, int>();
             foreach (var sale in _sales) {
                 if (dict.ContainsKey(sale.ProductCategory))
-                    //既にコレクションに店舗が設定されている
+                    //既にコレクションに商品カテゴリが設定されている
                     dict[sale.ProductCategory] += sale.Amount;
                 else
-                    //コレクションへ店舗を登録
+                    //コレクションへ商品カテゴリを登録
                     dict[sale.ProductCategory] = sale.Amount;
             }
             return dict;
