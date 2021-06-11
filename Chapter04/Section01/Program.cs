@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 namespace Section01 {
     class Program {
         static void Main(string[] args) {
-            int count = 0;
+            var Session = new Dictionary<string, object>();
+            Session["MyProduct"] = new Product();
 
-            Console.WriteLine($"後置:{count++}");
-            
-            Console.WriteLine($"前置:{count++}");
+            var product = Session["MyProduct"] as Product;
+            if(product == null) {
+                //productが取得できなかった時の処理
+                Console.WriteLine("productが取得できなかった");
+            } else {
+                //productが取得できた時の処理
+                Console.WriteLine("productが取得できた");
+            }
 
         }
 
