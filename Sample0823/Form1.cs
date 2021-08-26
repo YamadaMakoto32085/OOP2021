@@ -17,7 +17,8 @@ namespace Sample0823{
         private void Exec_Click(object sender, EventArgs e){
             int num1 = int.Parse(Value.Text); //整数に変換
             int num2 = int.Parse(Jyou.Text);
-            
+
+            Result.Text = Math.Pow(num1, num2).ToString();
         }
     }
 }
