@@ -28,8 +28,8 @@ namespace Exercise1
             var xdoc = XDocument.Load(file);
             var ballsports = xdoc.Root.Elements().Select(x => new
             {
-                Name = (string)x.Element("name").Value,
-                Teammembers = (string)x.Element("teammembers").Value
+                Name = x.Element("name").Value,
+                Teammembers = x.Element("teammembers").Value
             });
             foreach(var ballsport in ballsports)
             {
@@ -41,12 +41,15 @@ namespace Exercise1
         private static void Exrcise1_2(string file)
         {
             var xdoc = XDocument.Load(file);
-            var xballsports = xdoc.Root.Elements().OrderBy(x => (string)x.Element("firstplayed"));
-            foreach(var xballsport in xballsports)
+            var sports = xdoc.Root.Elements()
+                                  .Select(x => new
+                                  {
+                                      Firstplayed = x.Element("firstplayed").Value,
+                                      Name = x.Element("name").Attribute("kanji").Value
+                                  }).OrderBy(x => int.Parse(x.Firstplayed));
+.            foreach (var sport in sports)
             {
-                var name = xballsport.Element("name").Attribute("kanji");
-                var xfirstplayed = xballsport.Element("firstplayed");
-                Console.WriteLine("{0} {1}", name.Value, xfirstplayed.Value);
+                Console.WriteLine("{0} {1}", sport.Name, sport.Firstplayed);
             }
 
         }
