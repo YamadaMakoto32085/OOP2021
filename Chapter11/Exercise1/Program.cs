@@ -41,7 +41,13 @@ namespace Exercise1
         private static void Exrcise1_2(string file)
         {
             var xdoc = XDocument.Load(file);
-
+            var xballsports = xdoc.Root.Elements().OrderBy(x => (string)x.Element("firstplayed"));
+            foreach(var xballsport in xballsports)
+            {
+                var name = xballsport.Element("name").Attribute("kanji");
+                var xfirstplayed = xballsport.Element("firstplayed");
+                Console.WriteLine("{0} {1}", name.Value, xfirstplayed.Value);
+            }
 
         }
 
