@@ -28,12 +28,12 @@ namespace Exercise1
             var xdoc = XDocument.Load(file);
             var ballsports = xdoc.Root.Elements().Select(x => new
             {
-                Name = (string)x.Element("name"),
-                Teammember = (string)x.Element("teammembers")
+                Name = (string)x.Element("name").Value,
+                Teammembers = (string)x.Element("teammembers").Value
             });
             foreach(var ballsport in ballsports)
             {
-                Console.WriteLine("{0}:{1}", ballsport.Name, ballsport.Teammember);
+                Console.WriteLine("{0}:{1}", ballsport.Name, ballsport.Teammembers);
             }
 
         }
