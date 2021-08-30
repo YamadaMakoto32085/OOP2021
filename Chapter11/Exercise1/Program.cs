@@ -12,15 +12,22 @@ namespace Exercise1
         static void Main(string[] args)
         {
             var file = "Sample.xml";
+            Console.WriteLine("-11.1.1------");
             Exercise1_1(file);
-            Console.WriteLine("-------");
+            Console.WriteLine();
+            Console.WriteLine("-11.1.2------");
 
             Exrcise1_2(file);
-            Console.WriteLine("-------");
+            Console.WriteLine();
+            Console.WriteLine("-11.1.3------");
 
             Exrcise1_3(file);
-            Console.WriteLine("-------");
+            Console.WriteLine();
+            Console.WriteLine("-11.1.4------");
 
+            Exrcise1_4(file);
+            Console.WriteLine();
+            Console.WriteLine("-------");
         }
 
         private static void Exercise1_1(string file)
@@ -65,6 +72,29 @@ namespace Exercise1
                                   }).OrderByDescending(x => int.Parse(x.Teammembers)).First();
             Console.WriteLine("{0}", sports.Name);
 
+        }
+
+        private static void Exrcise1_4(string file)
+        {
+            var newfile = "sports.xml"; //新しく出力するファイル
+            var element = new XElement("sports",
+                            new XElement("name", "サッカー", new XAttribute("kanji", "蹴球")),
+                            new XElement("teammembers", "11"),
+                            new XElement("firstplayed", "1870")
+                            );
+            var xdoc = XDocument.Load("sports.xml");
+            xdoc.Root.Add(element);
+            var sports = xdoc.Root.Elements()
+                                  .Select(x => new
+                                  {
+                                      Name = x.Element("name").Attribute("kanji").Value,
+                                      Teammembers = x.Element("teammembers").Value,
+                                      Firstplayed = x.Element("firstplayed").Value
+                                  });
+            foreach(var sport in sports)
+            {
+                Console.WriteLine("{0} {1} {2}", sport.Name, sport.Teammembers, sport.Firstplayed);
+            }
         }
     }
 }
