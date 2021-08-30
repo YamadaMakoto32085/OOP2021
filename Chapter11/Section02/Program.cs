@@ -25,7 +25,7 @@ namespace Section02
             var xdoc = XDocument.Load("novelists.xml");
             xdoc.Root.Add(element);
 
-            xdoc.Save("newNovelists.xml"); //XMLファイルへの保存
+            xdoc.Save("novelists.xml"); //XMLファイルへの保存
         }
     }
 }
