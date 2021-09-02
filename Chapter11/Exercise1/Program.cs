@@ -77,24 +77,27 @@ namespace Exercise1
         private static void Exrcise1_4(string file)
         {
             var newfile = "sports.xml"; //新しく出力するファイル
-            var element = new XElement("sports",
+            //追加先のxmlファイルを読み込む
+            var xdoc = XDocument.Load(file);
+            //追加するデータ
+            var element = new XElement("ballsport",
                             new XElement("name", "サッカー", new XAttribute("kanji", "蹴球")),
                             new XElement("teammembers", "11"),
-                            new XElement("firstplayed", "1870")
+                            new XElement("firstplayed", "1863")
                             );
-            var xdoc = XDocument.Load("sports.xml");
-            xdoc.Root.Add(element);
-            var sports = xdoc.Root.Elements()
-                                  .Select(x => new
-                                  {
-                                      Name = x.Element("name").Attribute("kanji").Value,
-                                      Teammembers = x.Element("teammembers").Value,
-                                      Firstplayed = x.Element("firstplayed").Value
-                                  });
-            foreach(var sport in sports)
-            {
-                Console.WriteLine("{0} {1} {2}", sport.Name, sport.Teammembers, sport.Firstplayed);
-            }
+            xdoc.Root.Add(element); //追加先へ追加
+            xdoc.Save(newfile);
+            //var sports = xdoc.Root.Elements()
+            //                      .Select(x => new
+            //                      {
+            //                          Name = x.Element("name").Attribute("kanji").Value,
+            //                          Teammembers = x.Element("teammembers").Value,
+            //                          Firstplayed = x.Element("firstplayed").Value
+            //                      });
+            //foreach(var sport in sports)
+            //{
+            //    Console.WriteLine("{0} {1} {2}", sport.Name, sport.Teammembers, sport.Firstplayed);
+            //}
         }
     }
 }
