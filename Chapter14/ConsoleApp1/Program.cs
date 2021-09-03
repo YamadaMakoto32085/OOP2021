@@ -33,14 +33,11 @@ namespace Section04
             Console.WriteLine("yahoo!週間天気予報");
             Console.WriteLine(); //改行
             Console.WriteLine("地域コードを入力");
-            for(int i = 0; i < AreaDic.Count; i++)
+            int num = 1;
+            foreach(KeyValuePair<string,int> pair in AreaDic)
             {
-                Console.WriteLine("{0}:{1}", i + 1, );
+                Console.WriteLine("{0}:{1}", num++, pair.Key);
             }
-            Console.WriteLine("1:前橋");
-            Console.WriteLine("2:みなかみ");
-            Console.WriteLine("3:宇都宮");
-            Console.WriteLine("4:水戸");
             Console.WriteLine("9:その他(直接入力)");
             Console.WriteLine(); //改行
             Console.Write(">");
