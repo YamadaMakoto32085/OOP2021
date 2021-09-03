@@ -12,6 +12,13 @@ namespace Section04
 {
     class Program
     {
+        Dictionary<string, int> AreaDic = new Dictionary<string, int>()
+        {
+            {"前橋", 4210},
+            {"みなかみ", 4220},
+            {"宇都宮", 4110},
+            {"水戸", 4010},
+        };
         static void Main(string[] args)
         {
             new Program();
@@ -23,12 +30,63 @@ namespace Section04
             //DownloadString();
             //DownloadFileAsync();
             //OpenReadSample();
-            var results = GetWeatherReportFromYahoo(4610);
-            foreach(var s in results)
+            Console.WriteLine("yahoo!週間天気予報");
+            Console.WriteLine(); //改行
+            Console.WriteLine("地域コードを入力");
+            for(int i = 0; i < AreaDic.Count; i++)
             {
-                Console.WriteLine(s);
+                Console.WriteLine("{0}:{1}", i + 1, );
             }
-            Console.ReadLine(); //入力待ち
+            Console.WriteLine("1:前橋");
+            Console.WriteLine("2:みなかみ");
+            Console.WriteLine("3:宇都宮");
+            Console.WriteLine("4:水戸");
+            Console.WriteLine("9:その他(直接入力)");
+            Console.WriteLine(); //改行
+            Console.Write(">");
+            var selectArea = Console.ReadLine(); //文字列として取り込む
+            if (selectArea == "1")
+            {
+                var results = GetWeatherReportFromYahoo(4210);
+                foreach(var s in results)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.ReadLine();
+            }
+            if(selectArea == "2")
+            {
+                var results = GetWeatherReportFromYahoo(4220);
+                foreach(var s in results)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.ReadLine();
+            }
+            if(selectArea == "3")
+            {
+                var results = GetWeatherReportFromYahoo(4110);
+                foreach (var s in results)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.ReadLine();
+            }
+            if(selectArea == "4")
+            {
+                var results = GetWeatherReportFromYahoo(4010);
+                foreach (var s in results)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.ReadLine(); 
+            }
+            if(selectArea == "9")
+            {
+                Console.WriteLine("コードを入力してください");
+                var otherArea = Console.ReadLine();
+            }
+            Console.ReadLine();//入力待ち
         }
 
         public void DownloadString()
