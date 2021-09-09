@@ -25,19 +25,21 @@ namespace RssReader
         }
 
         //指定したURL先からXMLデータを取得し、title要素を取得し、リストボックスへセットする
-        private void setRssTitle(string url)
+        private void setRssTitle(string uri)
         {
             using (var wc = new WebClient())
             {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
-                var stream = wc.OpenRead(url);
+
+                var stream = wc.OpenRead(uri);
 
                 XDocument xdoc = XDocument.Load(stream);
                 var nodes = xdoc.Root.Descendants("title");
                 foreach (var node in nodes)
                 {
-                    
+                    lbTitles.Items.Add(node.Value);
                 }
+
             }
 
         }
