@@ -51,7 +51,7 @@ namespace RssReader
             this.tbUrl.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tbUrl.Location = new System.Drawing.Point(167, 19);
             this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(496, 27);
+            this.tbUrl.Size = new System.Drawing.Size(615, 27);
             this.tbUrl.TabIndex = 1;
             // 
             // lbTitles
@@ -60,21 +60,22 @@ namespace RssReader
             this.lbTitles.ItemHeight = 15;
             this.lbTitles.Location = new System.Drawing.Point(17, 66);
             this.lbTitles.Name = "lbTitles";
-            this.lbTitles.Size = new System.Drawing.Size(245, 544);
+            this.lbTitles.Size = new System.Drawing.Size(286, 544);
             this.lbTitles.TabIndex = 2;
+            this.lbTitles.Click += new System.EventHandler(this.lbTitles_Click);
             // 
             // wbBrowser
             // 
-            this.wbBrowser.Location = new System.Drawing.Point(279, 66);
+            this.wbBrowser.Location = new System.Drawing.Point(309, 66);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(509, 544);
+            this.wbBrowser.Size = new System.Drawing.Size(554, 544);
             this.wbBrowser.TabIndex = 3;
             // 
             // btRead
             // 
-            this.btRead.Location = new System.Drawing.Point(680, 20);
+            this.btRead.Location = new System.Drawing.Point(788, 22);
             this.btRead.Name = "btRead";
             this.btRead.Size = new System.Drawing.Size(75, 23);
             this.btRead.TabIndex = 4;
@@ -86,7 +87,7 @@ namespace RssReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 628);
+            this.ClientSize = new System.Drawing.Size(875, 628);
             this.Controls.Add(this.btRead);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbTitles);

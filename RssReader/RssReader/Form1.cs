@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,6 +15,7 @@ namespace RssReader
 {
     public partial class Form1 : Form
     {
+        IEnumerable<ItemData> items = null;
         public Form1()
         {
             InitializeComponent();
@@ -34,14 +36,19 @@ namespace RssReader
                 var stream = wc.OpenRead(uri);
 
                 XDocument xdoc = XDocument.Load(stream);
-                var nodes = xdoc.Root.Descendants("title");
-                foreach (var node in nodes)
+                var items = xdoc.Root.Descendants("item");
+                foreach (var item in items)
                 {
-                    lbTitles.Items.Add(node.Value);
+                    lbTitles.Items.Add(item.Element("title").Value);
                 }
 
             }
 
+        }
+        private void lbTitles_Click(object sender, EventArgs e)
+        {
+            string link = (items.ToArray())[lbTitles.SelectedIndex].Link; //配列に変換して[]でアクセス
+            wbBrowser.Url = new Uri(link);
         }
     }
 }
