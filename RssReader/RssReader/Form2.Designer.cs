@@ -62,6 +62,7 @@ namespace RssReader
             this.wbBrowser.ScriptErrorsSuppressed = true;
             this.wbBrowser.Size = new System.Drawing.Size(818, 658);
             this.wbBrowser.TabIndex = 2;
+            this.wbBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbBrowser_DocumentCompleted);
             // 
             // Form2
             // 
