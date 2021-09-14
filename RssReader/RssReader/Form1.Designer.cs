@@ -78,16 +78,17 @@ namespace RssReader
             // lbDescription
             // 
             this.lbDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbDescription.Location = new System.Drawing.Point(321, 250);
+            this.lbDescription.Location = new System.Drawing.Point(321, 66);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(528, 314);
             this.lbDescription.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(722, 577);
+            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Location = new System.Drawing.Point(722, 399);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 33);
+            this.button1.Size = new System.Drawing.Size(127, 52);
             this.button1.TabIndex = 6;
             this.button1.Text = "Web表示";
             this.button1.UseVisualStyleBackColor = true;

@@ -29,28 +29,30 @@ namespace RssReader
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btBack = new System.Windows.Forms.Button();
+            this.btGo = new System.Windows.Forms.Button();
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // button1
+            // btBack
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "戻る";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btBack.Location = new System.Drawing.Point(13, 13);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(75, 23);
+            this.btBack.TabIndex = 0;
+            this.btBack.Text = "戻る";
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
-            // button2
+            // btGo
             // 
-            this.button2.Location = new System.Drawing.Point(126, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "進む";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btGo.Location = new System.Drawing.Point(126, 13);
+            this.btGo.Name = "btGo";
+            this.btGo.Size = new System.Drawing.Size(75, 23);
+            this.btGo.TabIndex = 1;
+            this.btGo.Text = "進む";
+            this.btGo.UseVisualStyleBackColor = true;
+            this.btGo.Click += new System.EventHandler(this.btGo_Click);
             // 
             // wbBrowser
             // 
@@ -67,8 +69,8 @@ namespace RssReader
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 722);
             this.Controls.Add(this.wbBrowser);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btGo);
+            this.Controls.Add(this.btBack);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -78,8 +80,8 @@ namespace RssReader
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.Button btGo;
         private System.Windows.Forms.WebBrowser wbBrowser;
     }
 }

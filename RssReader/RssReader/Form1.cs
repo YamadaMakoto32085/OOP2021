@@ -53,6 +53,7 @@ namespace RssReader
         {
             string link = (items.ToArray())[lbTitles.SelectedIndex].Link; //配列に変換して[]でアクセス
             lbDescription.Text = "概要\n";
+            lbDescription.Text += (items.ToArray())[lbTitles.SelectedIndex].PubDate + "\n";
             lbDescription.Text += (items.ToArray())[lbTitles.SelectedIndex].Description;
         }
 

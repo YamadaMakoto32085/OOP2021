@@ -23,5 +23,15 @@ namespace RssReader
         {
             wbBrowser.Url = url;
         }
+
+        private void btGo_Click(object sender, EventArgs e)
+        {
+            wbBrowser.GoForward();
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            wbBrowser.GoBack();
+        }
     }
 }
