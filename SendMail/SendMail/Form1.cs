@@ -89,12 +89,19 @@ namespace SendMail
             configForm.ShowDialog();
         }
 
+        //XMLファイルを読み込み(逆シリアル化) [P303参照]
         private void Form1_Load(object sender, EventArgs e)
         {
-            using(var reader = XmlReader.Create("mailsetting.xml"))
+            using (var reader = XmlReader.Create("mailsetting.xml"))
             {
                 var serializer = new DataContractSerializer(typeof(Settings));
-                settings = serializer.ReadObject(reader) as Settings;
+                var readSettings = serializer.ReadObject(reader) as Settings;
+
+                settings.Host = readSettings.Host;
+                settings.Port = readSettings.Port;
+                settings.MailAddr = readSettings.MailAddr;
+                settings.Pass = readSettings.Pass;
+                settings.Ssl = readSettings.Ssl;
             }
         }
     }
