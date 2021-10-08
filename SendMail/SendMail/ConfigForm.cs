@@ -33,20 +33,16 @@ namespace SendMail
         //OKボタン
         private void btOk_Click(object sender, EventArgs e)
         {
-            SettingRegist();
+            btApply_Click(sender, e); //適用ボタンの処理を呼び出し
             this.Close();
         }
 
         //適用ボタン
         private void btApply_Click(object sender, EventArgs e)
         {
-            SettingRegist();//送信データ登録
-        }
-
-        //送信データ登録
-        private void SettingRegist()
-        {
-            
+            //Settingsオブジェクトに入力データを渡して登録を行う
+            settings.setSendConfig(tbHost.Text, int.Parse(tbPort.Text),
+                                   tbUserName.Text, tbPass.Text, cbSsl.Checked);
         }
 
         private void btCancel_Click(object sender, EventArgs e)
