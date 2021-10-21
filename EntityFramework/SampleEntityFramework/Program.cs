@@ -12,6 +12,7 @@ namespace SampleEntityFramework
     {
         static void Main(string[] args)
         {
+            //演習問題
             Console.WriteLine("# 1.1");
             Exercise13_1_1();
 
