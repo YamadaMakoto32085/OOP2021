@@ -142,6 +142,7 @@ namespace CarReportSystem {
             carReportDataGridView.CurrentRow.Cells[3].Value = selectedGroup();  //メーカー
             carReportDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;   //車名
             carReportDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;    //レポート
+            carReportDataGridView.CurrentRow.Cells[6].Value = ImageToByteArray(pbPicture.Image);  //画像
 
             //データベースへ反映
             this.Validate();
@@ -196,10 +197,46 @@ namespace CarReportSystem {
 
         private void carReportBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            //this.Validate();
-            //this.carReportBindingSource.EndEdit();
-            //this.tableAdapterManager.UpdateAll(this.infosys202112DataSet);
+            this.Validate();
+            this.carReportBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202112DataSet);
 
         }
+
+        private void carReportDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (carReportDataGridView.CurrentRow == null) return;
+            try
+            {
+                dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;  //日付
+                cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString(); //記録者
+                //メーカー(文字列 → 列挙型)
+                setMakerRadioButton((CarReport.MakerGroup)Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString()));
+                cbCarName.Text = carReportDataGridView.CurrentRow.Cells[4].Value.ToString();//車名
+                tbReport.Text = carReportDataGridView.CurrentRow.Cells[5].Value.ToString(); //レポート
+                pbPicture.Image = ByteArrayToImage((byte[])carReportDataGridView.CurrentRow.Cells[6].Value);   //画像
+            }
+            catch (Exception)
+            {
+                pbPicture.Image = null;
+            }
+            dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value; //日付
+        }
+
+        // バイト配列をImageオブジェクトに変換
+        public static Image ByteArrayToImage(byte[] b)
+        {
+            ImageConverter imgconv = new ImageConverter();
+            Image img = (Image)imgconv.ConvertFrom(b);
+            return img;
+        }
+        // Imageオブジェクトをバイト配列に変換
+        public static byte[] ImageToByteArray(Image img)
+        {
+            ImageConverter imgconv = new ImageConverter();
+            byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
+            return b;
+        }
+
     }
 }
