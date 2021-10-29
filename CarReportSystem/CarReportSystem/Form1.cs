@@ -195,7 +195,7 @@ namespace CarReportSystem {
                 setMakerRadioButton((CarReport.MakerGroup)Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString()));
                 cbCarName.Text = carReportDataGridView.CurrentRow.Cells[4].Value.ToString();//車名
                 tbReport.Text = carReportDataGridView.CurrentRow.Cells[5].Value.ToString(); //レポート
-                
+                //var mk = (CarReport.MakerGroup())
                 var img = (byte[])carReportDataGridView.CurrentRow.Cells[6].Value;
                 if (img.Length > 0)
                 {
