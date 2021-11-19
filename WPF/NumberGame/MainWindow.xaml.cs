@@ -69,6 +69,24 @@ namespace NumberGame
         {
             Button selectedButton = (Button)sender;
             int num = (int)selectedButton.Content;
+
+            if(answerNum > num)
+            {
+                new SolidColorBrush(Colors.Yellow);
+                RessultText.Text = "もっと大きい値です。";
+            }
+
+            if(answerNum < num)
+            {
+                new SolidColorBrush(Colors.Yellow);
+                RessultText.Text = "もっと小さい値です。";
+            }
+
+            if (answerNum == num)
+            {
+                new SolidColorBrush(Colors.Red);
+                RessultText.Text = "正解です。";
+            }
         }
     }
 }
