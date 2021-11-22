@@ -45,7 +45,7 @@ namespace Pelmanism
         //カードをクローズする
         public void Close()
         {
-            State = true;  //表
+            State = false;  //裏
             BackColor = CloseColor;
             Text = "";
             Enabled = true; //選択可
