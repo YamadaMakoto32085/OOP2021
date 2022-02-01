@@ -31,6 +31,7 @@ namespace Pelmanism
             {
                 "○","●","△","▲","□","■","◇","◆","☆","★","※","×",
             };
+
             //カードのインスタンスの生成
             cards = new Card[picture.Length * 2];
             for (int i = 0,j = 0; i < cards.Length; i += 2, j++)
@@ -183,11 +184,20 @@ namespace Pelmanism
         /// <param name="playingCards"></param>
         private void ShuffleCard(Card[] playingCards)
         {
+
             Random random = new Random();
-            foreach (Card card in playingCards)
+            for (int i = 0; i < playingCards.Length; i++)
             {
-                card.Text = random.Next().ToString();
+                int rand = random.Next(0, playingCards.Length);
+
+                var temp = playingCards[i].Picture;
+                playingCards[i].Picture = playingCards[rand].Picture;
+                playingCards[rand].Picture = temp;
             }
+            //foreach (Card card in playingCards)
+            //{
+            //   // card.Text = picture[random.Next(12)];
+            //}
 
         }
 
