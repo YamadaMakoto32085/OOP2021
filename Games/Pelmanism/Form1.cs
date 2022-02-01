@@ -194,11 +194,6 @@ namespace Pelmanism
                 playingCards[i].Picture = playingCards[rand].Picture;
                 playingCards[rand].Picture = temp;
             }
-            //foreach (Card card in playingCards)
-            //{
-            //   // card.Text = picture[random.Next(12)];
-            //}
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
